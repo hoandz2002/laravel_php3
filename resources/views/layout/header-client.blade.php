@@ -6,7 +6,7 @@
                     <!-- logo -->
                     <div class="site-logo">
                         <a href="index.html">
-                            <img src="assets/img/logo.png" alt="">
+                            <img src="{{ asset('assets/img/logo.png') }}" alt="">
                         </a>
                     </div>
                     <!-- logo -->
@@ -26,15 +26,34 @@
                             </li>
                             <li><a href="{{ route('client.contact') }}">Contact</a></li>
                             <li><a href="{{ route('client.shop') }}">Shop</a>
-                              
+
                             </li>
                             <li>
                                 <div class="header-icons">
-                                    <a class="shopping-cart" href="{{route('client.cart')}}"><i class="fas fa-shopping-cart"></i></a>
+                                    <a class="shopping-cart" href="{{ route('client.cart') }}"><i
+                                            class="fas fa-shopping-cart"></i></a>
                                     <a class="mobile-hide search-bar-icon" href="#"><i
                                             class="fas fa-search"></i></a>
-                                    <a class="mobile-hide search-bar-icon" href="{{ route('logout') }}"><i
-                                            class="fas fa-user"></i> {{ Auth::user()?Auth::user()->name :''}}</a>
+                                    <span>
+                                        <a class="mobile-hide search-bar-icon" href="{{ route('logout') }}"><i
+                                                class="fas fa-user"></i>
+                                            {{ Auth::user() ? Auth::user()->name : '' }}</a>
+                                        @if (Auth::user())
+                                            <ul class="sub-menu">
+                                                <li>
+                                                    @if (Auth::user())
+                                                        <a href="{{ route('client.profile', Auth::user()->id) }}">Thông
+                                                            tin cá nhân</a>
+                                                    @endif
+                                                    {{-- <a href="{{route('client.profile',Auth::user()->id)}}">Thông tin cá nhân</a> --}}
+                                                </li>
+                                                {{-- <li><a href="checkout.html">Check Out</a></li> --}}
+                                                <li><a href="{{ route('client.showOrder') }}">Hóa Đơn</a></li>
+                                                <li><a href="{{ route('logout') }}">Đăng xuất</a></li>
+                                            </ul>
+                                        @endif
+
+                                    </span>
                                 </div>
                             </li>
                         </ul>

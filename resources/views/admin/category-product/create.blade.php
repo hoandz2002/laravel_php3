@@ -20,6 +20,13 @@
             <label for="">Tên danh mục</label>
             <input type="text" name="name" id="" value="{{ isset($cate) ? $cate->name : old('name') }}"
                 class="form-control">
+                <div>
+                    @if (session()->has('erro'))
+                        <div class="alert-default-danger">
+                            * {{session()->get('erro')}}
+                        </div>
+                    @endif
+                </div>
         </div>
         <div class="form-group">
             <label for="">Trạng thái</label>

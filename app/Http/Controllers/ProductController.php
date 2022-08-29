@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductRequest;
 use App\Models\CategoryProduct;
 use App\Models\GalleryImag;
 use App\Models\GalleryImage;
@@ -27,7 +28,7 @@ class ProductController extends Controller
         return view('admin.products.create', compact('cate', 'sizes'));
     }
 
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
         $statement = DB::select("SHOW TABLE STATUS LIKE 'products'");
         $nextId = $statement[0]->Auto_increment;
@@ -77,7 +78,7 @@ class ProductController extends Controller
 
         return view('admin.products.create', compact('product', 'cate', 'sizes'));
     }
-    public function update(Request $request, $product)
+    public function update(ProductRequest $request, $product)
     {
 
         $data = Product::find($product);

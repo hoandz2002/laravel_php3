@@ -1,20 +1,22 @@
-@extends('layout.master')
-
-@section('title', 'Quản lý người dùng')
-
-@section('content-title', 'Quản lý người dùng')
-
+@extends('layout.master-client')
+@section('title', 'Profile')
+@section('conten-title', 'Profile')
 @section('content')
-    @if ($errors->any())
-        {{-- <ul>
-            @foreach ($errors->all() as $error)
-                <li style="color: red">{{ $error }}</li>
-            @endforeach
-        </ul> --}}
-    @endif
-    <form action="{{ isset($user) ? route('users.update', $user->id) : route('users.store') }}" method="POST"
+    <div class="breadcrumb-section breadcrumb-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 text-center">
+                    <div class="breadcrumb-text">
+                        <p>Fresh and Organic</p>
+                        <h1>Profile</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form action="{{route('client.updateProfile',$user->id)}}" method="POST"
         enctype="multipart/form-data">
-        {{ isset($user) ? method_field('PUT') : '' }}
         @csrf
         <div class="form-group">
             <label for="">Tên</label>
@@ -36,6 +38,7 @@
             <label for="">Password</label>
             <input type="password" name="password" id="" value="{{ isset($user) ? $user->password : '' }}"
                 class="form-control">
+                
         </div>
         <div class="form-group">
             <label for="">Tên hiển thị</label>
@@ -50,26 +53,19 @@
             <input type="file" name="avatar" id="" value="{{ isset($user) ? $user->avatar : '' }}"
                 class="form-control">
         </div>
-       
-        <div class="form-group">
+
+        <div hidden class="form-group">
             <label for="">Phân quyền</label>
-            <input type="radio" name="role" id="" value="1"
-                {{ isset($user) && $user->role === 1 ? 'checked' : '' }}>AD
-            <input type="radio" name="role" id="" value="0"
-                {{ isset($user) && $user->role === 0 ? 'checked' : '' }}>KH
+          <input type="text" name="role" value="0" id="">
         </div>
-        <div class="form-group">
+        <div hidden class="form-group">
             <label for="">Trạng thái</label>
-            <input type="radio" name="status" id="" value="1"
-                {{ isset($user) && $user->status === 1 ? 'checked' : '' }}>Kích hoạt
-            <input type="radio" name="status" id="" value="0"
-                {{ isset($user) && $user->status === 0 ? 'checked' : '' }}>Không kích hoạt
+          <input type="text" name="status" value="1"  id="">
         </div>
 
         <button class="btn btn-success">
-            {{ isset($user) ? 'Update' : 'Create' }}
+            Update
         </button>
         <button class="btn btn-danger">nhập lại</button>
-
     </form>
 @endsection

@@ -30,6 +30,7 @@
 </head>
 
 <body>
+    <a style="margin-left: 40px;position: absolute;top: 50px" href="{{route('client.index')}}"><button class="btn btn-danger">Back</button></a>
     <section class="vh-100">
         <div class="container-fluid h-custom">
             <div class="row d-flex justify-content-center align-items-center h-100">
@@ -43,7 +44,7 @@
                         {{-- <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
                             <p class="lead fw-normal mb-0 me-3">Sign in with</p>
                             <button type="button" class="btn btn-primary btn-floating mx-1">
-                                <i class="fab fa-facebook-f"></i>
+                                <i class="fab fa-facebook-f">Quay lại trang chủ</i>
                             </button>
 
                             <button type="button" class="btn btn-primary btn-floating mx-1">
@@ -53,20 +54,24 @@
                             <button type="button" class="btn btn-primary btn-floating mx-1">
                                 <i class="fab fa-linkedin-in"></i>
                             </button>
-                        </div> --}}
+                        </div>
 
                         <div class="divider d-flex align-items-center my-4">
                             <p class="text-center fw-bold mx-3 mb-0">Or</p>
-                        </div>
+                        </div> --}}
                         <div>
                             @if (session()->has('success'))
                                 <div class="alert alert-success">
                                     {{ session()->get('success') }}
                                 </div>
                             @endif
-                            {{-- @if ($errors->any())
-                                {{dd($errors)}}
-                            @endif --}}
+                        </div>
+                        <div>
+                            @if (session()->has('error'))
+                                <div class="alert alert-danger">
+                                    {{ session()->get('error') }}
+                                </div>
+                            @endif
                         </div>
                         <!-- Email input -->
                         <div class="form-outline mb-4">

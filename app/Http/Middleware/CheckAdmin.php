@@ -36,13 +36,17 @@ class CheckAdmin
             $user = Auth::user();
             if ($user->status == 0) {
                 if ($user->role == 1) {
+                    // return redirect()->route('users.list');
                     return $next($request);
                 }if ($user->role == 0) {
                     return redirect()->route('client.index');
                     // dd('an cut');
                 }
-            } else {
-                dd('tai khoan khong hoat dong');
+            } else{
+                // session()->flash('error','Tài khoản củ bạn đã bị khóa');
+                // return redirect()->route('auth.getLogin');
+                // return back();
+                return('tai khoan cua ban khong hoat dong');
             }
         }
     }

@@ -46,7 +46,7 @@
                         <form action="{{ route('products.delete', $product->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button class='btn btn-danger'>Xoá</button>
+                            <button  class='btn btn-danger' onclick="return confirm('Bạn có chắc chắn muốn xóa')">Xoá</button>
                         </form>
                     </td>
                 </tr>

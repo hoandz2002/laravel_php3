@@ -155,9 +155,9 @@
                                                     id="">
                                                 <input hidden type="text" name="oderStatus" value="0"
                                                     id="">
-                                                <p><input type="text" name="orderName" placeholder="Name"></p>
-                                                <p><input type="email" name="oderEmail" placeholder="Email"></p>
-                                                <p><input type="text" name="address" placeholder="Address"></p>
+                                                <p><input type="text" disabled value="{{$helo->name}}" name="orderName" placeholder="Name"></p>
+                                                <p><input type="email" disabled value="{{$helo->email}}" name="oderEmail" placeholder="Email"></p>
+                                                <p><input type="text" value="Hai duong" name="address" placeholder="Address"></p>
                                                 <p><input type="tel" name="phone" placeholder="Phone"></p>
                                                 {{-- @foreach ($products as $item) --}}
                                                 <input hidden type="text" name="total" value="{{ $total }}"
@@ -166,7 +166,16 @@
                                                 <p>
                                                     <textarea name="bill" id="bill" cols="30" rows="10" placeholder="Say Something"></textarea>
                                                 </p>
-                                                <button class="btn btn-warning">Save</button>
+                                                <button class="btn btn-warning">Save</button> <br>
+                                                <div> 
+                                                    @if ($errors->any())
+                                                        <ul>
+                                                            @foreach ($errors->all() as $error)
+                                                                <li style="color: red">{{ $error }}</li>
+                                                            @endforeach
+                                                        </ul>
+                                                    @endif
+                                                </div>
                                             </form>
                                         </div>
                                     </div>

@@ -12,23 +12,37 @@
             <label for="">Tên sản phẩm</label>
             <input type="text" name="nameProduct" value="{{ isset($product) ? $product->nameProduct : old('nameProduct') }}"
                 id="" class="form-control">
+                @if ($errors->has('nameProduct'))
+                <p class="text-danger">{{ $errors->first('nameProduct') }}</p>
+            @endif
         </div>
+      
         <div class="form-group">
             <label for="">Mô tả</label>
             <input class="form-control" type="text" name="description"
                 value="{{ isset($product) ? $product->description : old('description') }}" id="">
+                @if ($errors->has('description'))
+                <p class="text-danger">{{ $errors->first('description') }}</p>
+            @endif
         </div>
         <div class="form-group">
             <label for="">Giá sản phẩm</label>
             <input class="form-control" type="text" name="price"
                 value="{{ isset($product) ? $product->price : old('price') }}" id="">
+                @if ($errors->has('price'))
+                <p class="text-danger">{{ $errors->first('price') }}</p>
+            @endif
         </div>
+      
         <div class="form-group">
             <label for="">Avatar</label><br>
             <td><img src="{{ isset($product) ? asset($product->avatar) :''}}" alt="" width="100"></td>
             <br> <br>
             <input class="form-control" type="file" name="avatar"
                 value="{{ isset($product) ? $product->price : old('price') }}" id="">
+                @if (session()->has('error'))
+                <p class="text-danger">{{ session()->get('error') }}</p>
+            @endif
         </div>
         <div class="col-md-6">
             <label class="form-label">Thư viện ảnh</label> <br>
@@ -45,6 +59,9 @@
                         {{ $item->name }}</option>
                 @endforeach
             </select>
+            @if ($errors->has('category_id'))
+            <p class="text-danger">{{ $errors->first('category_id') }}</p>
+        @endif
         </div>
         <div class="form-group">
             <label for="">Size</label>
@@ -58,6 +75,9 @@
                         {{ $item->nameSize }}</option>
                 @endforeach
             </select>
+            @if ($errors->has('size_id'))
+            <p class="text-danger">{{ $errors->first('size_id') }}</p>
+        @endif
         </div>
 
         <div class="form-group">

@@ -46,7 +46,7 @@
                             <form action="{{ route('admin.contacts.delete', $item->id) }}" method="post">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Delete</button>
+                                <button onclick="return confirm('Bạn có chắc chắn muốn xóa')" type="submit" class="btn btn-danger">Delete</button>
                             </form>
                         </a>
                 </td>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CategoryProductRequest;
+use App\Http\Requests\CategoryRequest;
 use App\Models\CategoryProduct;
 use App\Models\CategotyProduct;
 use Illuminate\Http\Request;
@@ -24,7 +25,11 @@ class CategoryProductController extends Controller
         $cate=new CategoryProduct();
 
         $cate->fill($request->all());
-
+        if($request->name == null){
+            session()->flash('erro','Tên danh mục không được để trống');
+            return redirect()->route('catepr.create');
+        }
+        session()->flash('success','Tạo mới thành công');
         $cate->save();
         return redirect()->route('catepr.list');
     }
@@ -40,7 +45,11 @@ class CategoryProductController extends Controller
         // dd($request->all());
         $catenew->name = $request->name;
         $request->statusCate ? $catenew->statusCate = $request->statusCate : $catenew->statusCate = $catenew->statusCate;
-
+        if($request->name == null){
+            session()->flash('erro','Tên danh mục không được để trống');
+            return redirect()->route('catepr.edit',$catenew->id);
+        }
+        session()->flash('success','Cập nhật trạng thái thành công');
         $catenew->save();
         return redirect()->route('catepr.list');
 

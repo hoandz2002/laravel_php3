@@ -30,7 +30,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    dd('hahaha');
 });
 
 //
@@ -58,28 +58,37 @@ Route::prefix('/products')->name('products.')->group(function () {
 
 // giao dien khach hang
 
-Route::prefix('/client')->name('client.')->group(function () {
+Route::name('client.')->group(function () {
     Route::get('/home', [ClientController::class, 'index'])->name('index');
+    // Contact
     Route::get('/contact', [ClientController::class, 'contact'])->name('contact');
     Route::post('/storeContact', [ClientController::class, 'storeContact'])->name('storeContact');
+    //list product
     Route::get('/shop', [ClientController::class, 'shop'])->name('shop');
+    //cart
     Route::get('/cart', [ClientController::class, 'cart'])->name('cart');
     Route::middleware('CheckClient')->post('/storeCart', [ClientController::class, 'storeCart'])->name('storeCart');
     Route::delete('/deleteCart/{products}', [ClientController::class, 'deleteCart'])->name('deleteCart');
+    //about- new
     Route::get('/about', [ClientController::class, 'about'])->name('about');
     Route::get('/new', [ClientController::class, 'new'])->name('new');
+    //detail-product
     Route::get('/single/{id}', [ClientController::class, 'single'])->name('single');
+    // comment
     Route::post('/storeComment', [ClientController::class, 'storeComment'])->name('storeComment');
     Route::delete('/deleteComment/{product}', [ClientController::class, 'deleteComment'])->name('deleteComment');
+    // checkout -> order
     Route::get('/checkout', [ClientController::class, 'checkout'])->name('checkout');
     Route::post('/createOrder', [ClientController::class, 'createOrder'])->name('createOrder');
     Route::post('/storeOrder', [ClientController::class, 'storeOrder'])->name('storeOrder');
     Route::get('/showOrder', [OrderController::class, 'showOrder'])->name('showOrder');
     Route::get('/detail/{order}', [OrderDetailController::class, 'detail'])->name('detail');
     Route::post('/updateStatusOrder/{order}', [OrderDetailController::class, 'updateStatusOrder'])->name('updateStatusOrder');
-
-
-
+    //profile
+    Route::get('/profile/{user}', [ClientController::class, 'profile'])->name('profile');
+    Route::get('/editProfile/{id}', [ClientController::class, 'editProfile'])->name('editProfile');
+    Route::post('/updateProfile/{user}', [ClientController::class, 'updateProfile'])->name('updateProfile');
+    Route::get('/report/{user}', [ClientController::class, 'report'])->name('report');
 });
 //giao dien danh muc san pham
 Route::prefix('/catepr')->name('catepr.')->group(function () {
@@ -123,11 +132,10 @@ Route::prefix('/admin')->name('admin.')->group(function () {
         Route::get('/list', [OrderController::class, 'index'])->name('list');
         Route::get('/detail/{order}', [OrderDetailController::class, 'index'])->name('detail');
         Route::put('/updateStatusOrder/{order}', [OrderController::class, 'updateStatusOrder'])->name('updateStatusOrder');
-
-    }); 
+    });
 });
 //Auth
-Route::middleware('guest')->prefix('auth')->name('auth.')->group(function () {
+Route::prefix('auth')->name('auth.')->group(function () {
     Route::get('/login', [AuthController::class, 'getLogin'])->name('getLogin');
     Route::post('/login', [AuthController::class, 'postLogin'])->name('postLogin');
     Route::get('/getdangki', [AuthController::class, 'getdangki'])->name('getdangki');

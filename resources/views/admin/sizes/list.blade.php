@@ -45,7 +45,7 @@
                         <form action="{{ route('admin.sizes.delete', $item->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button class='btn btn-danger'>Xoá</button>
+                            <button onclick="return confirm('Bạn có chắc chắn muốn xóa')" class='btn btn-danger'>Xoá</button>
                         </form>
                     </td>
                 </tr>

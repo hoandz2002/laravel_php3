@@ -72,6 +72,15 @@
                             {{-- <input type="hidden" name="token" value="FsWga4&@f6aw" /> --}}
                             {{-- <p><input type="submit" value="Submit"></p> --}}
                             <button class="btn btn-warning">Submit</button>
+                            <div> 
+                                @if ($errors->any())
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li style="color: red">{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                @endif
+                            </div>
                         </form>
                     </div>
                 </div>

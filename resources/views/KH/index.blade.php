@@ -35,17 +35,17 @@
 	<!-- end search area -->
 
 	<!-- hero area -->
-	<div class="hero-area hero-bg" style="background-image:url('https://induongquang.com/data/upload/banner-noi-that.jpg') ">
+	<div class="hero-area hero-bg" style="background-image:url('https://noithathaiphong.com.vn/Data/images/slide/banner-default.jpg') ">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-9 offset-lg-2 text-center">
 					<div class="hero-text">
 						<div class="hero-text-tablecell">
-							<p class="subtitle">Fresh & Organic</p>
-							<h1>Vietnamese domestic goods</h1>
+							<p class="subtitle">Chất lượng & Thẩm mĩ</p>
+							<h1>HÀNG BỘI ĐỊA CAO CẤP</h1>
 							<div class="hero-btns">
-								<a href="shop.html" class="boxed-btn">Fruit Collection</a>
-								<a href="contact.html" class="bordered-btn">Contact Us</a>
+								<a href="shop.html" class="boxed-btn">Bộ sưu tập ảnh</a>
+								<a href="{{route('client.contact')}}" class="bordered-btn">Liên hệ</a>
 							</div>
 						</div>
 					</div>
@@ -66,8 +66,8 @@
 							<i class="fas fa-shipping-fast"></i>
 						</div>
 						<div class="content">
-							<h3>Free Shipping</h3>
-							<p>When order over $75</p>
+							<h3>Miễn phí vận chuyển</h3>
+							<p>Với đơn hàng từ 3 món</p>
 						</div>
 					</div>
 				</div>
@@ -77,8 +77,8 @@
 							<i class="fas fa-phone-volume"></i>
 						</div>
 						<div class="content">
-							<h3>24/7 Support</h3>
-							<p>Get support all day</p>
+							<h3>Hỗ trợ 24/7</h3>
+							<p>Nhận hỗ trợ cả ngày</p>
 						</div>
 					</div>
 				</div>
@@ -88,8 +88,8 @@
 							<i class="fas fa-sync"></i>
 						</div>
 						<div class="content">
-							<h3>Refund</h3>
-							<p>Get refund within 3 days!</p>
+							<h3>Đền bù đơn hàng</h3>
+							<p>Nhận tiền hoàn lại trong 3 ngày!</p>
 						</div>
 					</div>
 				</div>
@@ -105,7 +105,7 @@
 			<div class="row">
 				<div class="col-lg-8 offset-lg-2 text-center">
 					<div class="section-title">	
-						<h3><span class="orange-text">Our</span> Products</h3>
+						<h3><span class="orange-text">Sản phẩm </span>Mới nhất</h3>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio.</p>
 					</div>
 				</div>
@@ -126,6 +126,9 @@
 				@endforeach
 				
 			</div>
+			<a style="margin-left: 500px" href="{{route('client.shop')}}">
+				<button class="btn btn-warning" style="border-radius: 20px;background: #f28123;color: white">Xem thêm</button>
+			</a>
 		</div>
 	</div>
 	<!-- end product section -->
@@ -135,21 +138,21 @@
     	<div class="container">
         	<div class="row clearfix">
             	<!--Image Column-->
-            	<div style="background-image: url('https://gotrangtri.com.vn/wp-content/uploads/2022/05/phong-cach-nhat-4-180x120.jpg');background-size: 100% 100% " class="image-column col-lg-6">
+            	<div class="image-column col-lg-6">
                 	<div class="image">
                     	<div class="price-box">
                         	<div class="inner-price">
                                 <span class="price">
-                                    <strong>30%</strong> <br> off per kg
+                                    <strong>30%</strong> <br> off each product
                                 </span>
                             </div>
                         </div>
-                    	<img src="assets/img/a.jpg" alt="">
+                    	<img src="https://noithathaiphong.com.vn/Data/images/20171025102811-cd90.jpg" alt="">
                     </div>
                 </div>
                 <!--Content Column-->
                 <div class="content-column col-lg-6">
-					<h3><span class="orange-text">Deal</span> of the month</h3>
+					<h3><span class="orange-text">Ưu đãi </span>Của tháng</h3>
                     <h4>Hikan Strwaberry</h4>
                     <div class="text">Quisquam minus maiores repudiandae nobis, minima saepe id, fugit ullam similique! Beatae, minima quisquam molestias facere ea. Perspiciatis unde omnis iste natus error sit voluptatem accusant</div>
                     <!--Countdown Timer-->
@@ -232,7 +235,7 @@
 						<h2>We are <span class="orange-text">Fruitkha</span></h2>
 						<p>Etiam vulputate ut augue vel sodales. In sollicitudin neque et massa porttitor vestibulum ac vel nisi. Vestibulum placerat eget dolor sit amet posuere. In ut dolor aliquet, aliquet sapien sed, interdum velit. Nam eu molestie lorem.</p>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente facilis illo repellat veritatis minus, et labore minima mollitia qui ducimus.</p>
-						<a href="about.html" class="boxed-btn mt-4">know more</a>
+						<a href="{{route('client.about')}}" class="boxed-btn mt-4">know more</a>
 					</div>
 				</div>
 			</div>
@@ -243,9 +246,9 @@
 	<!-- shop banner -->
 	<section class="shop-banner">
     	<div class="container">
-        	<h3>December sale is on! <br> with big <span class="orange-text">Discount...</span></h3>
-            <div class="sale-percent"><span>Sale! <br> Upto</span>50% <span>off</span></div>
-            <a href="shop.html" class="cart-btn btn-lg">Shop Now</a>
+        	<h3>Giảm giá tháng 8 đang diễn ra <br> Với chiết khấu <span class="orange-text">cực lớn...</span></h3>
+            <div class="sale-percent"><span>giảm giá! <br> lên tới</span>50% <span></span></div>
+            <a href="{{route('client.shop')}}" class="cart-btn btn-lg">Mua ngay</a>
         </div>
     </section>
 	<!-- end shop banner -->
@@ -257,7 +260,7 @@
 			<div class="row">
 				<div class="col-lg-8 offset-lg-2 text-center">
 					<div class="section-title">	
-						<h3><span class="orange-text">Our</span> News</h3>
+						<h3><span class="orange-text">Tin tức</span> mới</h3>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio.</p>
 					</div>
 				</div>

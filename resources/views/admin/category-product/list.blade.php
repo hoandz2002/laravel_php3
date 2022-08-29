@@ -7,6 +7,13 @@
             <button class='btn btn-success'>Tạo mới</button>
         </a>
     </div>
+    <div>
+        @if (session()->has('success'))
+            <div class="alert-success">
+                {{session()->get('success')}}
+            </div>
+        @endif
+    </div>
     <table class='table'>
         <thead>
             <tr>
@@ -45,7 +52,7 @@
                         <form action="{{ route('catepr.delete', $item->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button class='btn btn-danger'>Xoá</button>
+                            <button onclick="return confirm('Bạn có chắc chắn muốn xóa')" class='btn btn-danger'>Xoá</button>
                         </form>
                     </td>
                 </tr>

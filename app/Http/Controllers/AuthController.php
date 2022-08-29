@@ -30,11 +30,29 @@ class AuthController extends Controller
         // Kiểm tra thông tin đăng nhập của người dùng
         if (Auth::attempt(['email' => $email, 'password' => $password])) {
             // trả về true thì điều hướng về trang home
-            if (Auth::user()->role === 1) {
-                return redirect()->route('users.list');
+            // if (Auth::user()->role === 1 && Auth::user()->status == 0) {
+            //     return redirect()->route('users.list');
+            // }
+            // return redirect()->route('client.index');
+            if (Auth::check()) {
+                $user = Auth::user();
+                if ($user->status == 0) {
+                    if ($user->role == 1) {
+                        return redirect()->route('users.list');
+                    }if ($user->role == 0) {
+                        return redirect()->route('client.index');
+                        // dd('an cut');
+                    }
+                } else{
+                    session()->flash('error','Tài khoản củ bạn đã bị khóa');
+                    return redirect()->route('auth.getLogin');
+                    // return back();
+                    // return('tai khoan cua ban khong hoat dong');
+                }
             }
-            return redirect()->route('client.index');
-        } else {
+        }
+         else 
+        {
             //nếu k khớp bản ghi nào trong db thì quay về login
             return redirect()->route('auth.getLogin');
             // dd('cc');

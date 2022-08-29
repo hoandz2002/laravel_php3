@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
 use App\Http\Requests\UserUpdateRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -51,7 +52,7 @@ class UserController extends Controller
             'user' => $user,
         ]);
     }
-    public function update(User $user, Request $request)
+    public function update(User $user, UserRequest $request)
     {
         $userEdit = User::find($user->id);
         // dd($request->all());

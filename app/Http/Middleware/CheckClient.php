@@ -18,10 +18,15 @@ class CheckClient
     public function handle(Request $request, Closure $next)
     {
         if (Auth::check()) {
-            return $next($request);
+            $user=Auth::user();
+            if($user->status == 0){
+                return $next($request);
+            }
+            else{
+                session()->flash('error','Tài khaonr của bạn không hoạt động');
+                return redirect()->route('auth.getLogin');
+            }
         }
-        else{
-            return redirect()->route('auth.getLogin');
-        }
+       
     }
 }
