@@ -38,7 +38,7 @@
                         class="img-fluid" alt="Sample image">
                 </div>
                 <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                    <form action="{{ route('auth.postForm') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('auth.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
                             <p class="lead fw-normal mb-0 me-3" style="color: black">Form đăng kí</p>
@@ -61,7 +61,7 @@
                             <label class="form-label" for="form3Example3">Địa chỉ email</label>
                         </div>
                         <div class="form-outline mb-3">
-                            <input type="password" id="form3Example4" class="form-control form-control-lg"
+                            <input type="password" name="password" id="form3Example4" class="form-control form-control-lg"
                                 placeholder="Nhập mật khẩu bảo mật" />
                             <label class="form-label" for="form3Example4">Password</label>
                         </div>  

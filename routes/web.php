@@ -30,7 +30,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    dd('hahaha');
+    return redirect()->route('client.index');
 });
 
 //
@@ -69,6 +69,7 @@ Route::name('client.')->group(function () {
     Route::get('/cart', [ClientController::class, 'cart'])->name('cart');
     Route::middleware('CheckClient')->post('/storeCart', [ClientController::class, 'storeCart'])->name('storeCart');
     Route::delete('/deleteCart/{products}', [ClientController::class, 'deleteCart'])->name('deleteCart');
+    Route::get('/updateCart/{id}', [ClientController::class, 'updateCart'])->name('updateCart');
     //about- new
     Route::get('/about', [ClientController::class, 'about'])->name('about');
     Route::get('/new', [ClientController::class, 'new'])->name('new');
@@ -100,7 +101,6 @@ Route::prefix('/catepr')->name('catepr.')->group(function () {
     Route::put('/update/{cate}', [CategoryProductController::class, 'update'])->name('update');
     Route::post('/updateStatus/{cate}', [CategoryProductController::class, 'updateStatus'])->name('updateStatus');
 });
-
 // admin/
 Route::prefix('/admin')->name('admin.')->group(function () {
     Route::prefix('/contacts')->name('contacts.')->group(function () {
@@ -139,6 +139,6 @@ Route::prefix('auth')->name('auth.')->group(function () {
     Route::get('/login', [AuthController::class, 'getLogin'])->name('getLogin');
     Route::post('/login', [AuthController::class, 'postLogin'])->name('postLogin');
     Route::get('/getdangki', [AuthController::class, 'getdangki'])->name('getdangki');
-    Route::post('/postForm', [AuthController::class, 'postForm'])->name('postForm');
+    Route::post('/store', [UserController::class, 'store'])->name('store');
 });
 Route::middleware('auth')->get('/auth/logout', [AuthController::class, 'logout'])->name('logout');

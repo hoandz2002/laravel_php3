@@ -125,6 +125,15 @@ class ClientController extends Controller
     }
     public function deleteComment($product)
     {
+        $data = Comment::find($product);
+        // dd($data->id);
+        $data -> delete();
+        return redirect()->back();
+    }
+    public function updateCart(Request $request,$id)
+    {
+        $data = Cart::find($id);
+        dd($request->all());;
     }
     public function checkout()
     {

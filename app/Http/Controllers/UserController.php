@@ -6,6 +6,7 @@ use App\Http\Requests\UserRequest;
 use App\Http\Requests\UserUpdateRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -44,7 +45,12 @@ class UserController extends Controller
         }
         // 3. Lưu $user vào CSDL
         $user->save();
+       if(Auth::check()){
         return redirect()->route('users.list');
+       }else{
+        session()->flash('success','bạn đã đăng kí thành công');
+        return redirect()->route('auth.getLogin');
+       }
     }
     public function edit(User $user)
     {

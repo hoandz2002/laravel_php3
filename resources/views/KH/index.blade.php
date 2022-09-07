@@ -16,22 +16,24 @@
 	<!-- end header -->
 	
 	<!-- search area -->
-	<div class="search-area">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<span class="close-btn"><i class="fas fa-window-close"></i></span>
-					<div class="search-bar">
-						<div class="search-bar-tablecell">
-							<h3>Search For:</h3>
-							<input type="text" placeholder="Keywords">
-							<button type="submit">Search <i class="fas fa-search"></i></button>
+	<form action="{{route('client.shop')}}">
+		<div class="search-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<span class="close-btn"><i class="fas fa-window-close"></i></span>
+						<div class="search-bar">
+							<div class="search-bar-tablecell">
+								<h3>Search For:</h3>
+								<input type="text" name="search" placeholder="Keywords">
+								<button type="submit">Search <i class="fas fa-search"></i></button>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</form>
 	<!-- end search area -->
 
 	<!-- hero area -->
@@ -44,7 +46,7 @@
 							<p class="subtitle">Chất lượng & Thẩm mĩ</p>
 							<h1>HÀNG BỘI ĐỊA CAO CẤP</h1>
 							<div class="hero-btns">
-								<a href="shop.html" class="boxed-btn">Bộ sưu tập ảnh</a>
+								<a href="shop.html" class="boxed-btn">Sản phẩm</a>
 								<a href="{{route('client.contact')}}" class="bordered-btn">Liên hệ</a>
 							</div>
 						</div>

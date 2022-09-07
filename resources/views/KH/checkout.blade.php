@@ -1,18 +1,9 @@
-@extends('layout.master-client')
+p@extends('layout.master-client')
 @section('title', 'san pham')
 @section('conten-title', 'san pham')
 @section('content')
 
-    <!--PreLoader-->
-    {{-- <div class="loader">
-        <div class="loader-inner">
-            <div class="circle"></div>
-        </div>
-    </div> --}}
-    <!--PreLoader Ends-->
-
-    <!-- header -->
-    <div class="top-header-area" id="sticker">
+    {{-- <div class="top-header-area" id="sticker">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-sm-12 text-center">
@@ -78,26 +69,28 @@
             </div>
         </div>
     </div>
-    <!-- end header -->
+    <!-- end header --> --}}
 
     <!-- search area -->
-    <div class="search-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <span class="close-btn"><i class="fas fa-window-close"></i></span>
-                    <div class="search-bar">
-                        <div class="search-bar-tablecell">
-                            <h3>Search For:</h3>
-                            <input type="text" placeholder="Keywords">
-                            <button type="submit">Search <i class="fas fa-search"></i></button>
+    <form action="{{ route('client.shop') }}">
+        <div class="search-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <span class="close-btn"><i class="fas fa-window-close"></i></span>
+                        <div class="search-bar">
+                            <div class="search-bar-tablecell">
+                                <h3>Search For:</h3>
+                                <input type="text" name="search" placeholder="Keywords">
+                                <button type="submit">Search <i class="fas fa-search"></i></button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- end search arewa -->
+    </form>
+    <!-- end search area -->
 
     <!-- breadcrumb-section -->
     <div class="breadcrumb-section breadcrumb-bg">
@@ -155,9 +148,12 @@
                                                     id="">
                                                 <input hidden type="text" name="oderStatus" value="0"
                                                     id="">
-                                                <p><input type="text" disabled value="{{$helo->name}}" name="orderName" placeholder="Name"></p>
-                                                <p><input type="email" disabled value="{{$helo->email}}" name="oderEmail" placeholder="Email"></p>
-                                                <p><input type="text" value="Hai duong" name="address" placeholder="Address"></p>
+                                                <p><input type="text" disabled value="{{ $helo->name }}"
+                                                        name="orderName" placeholder="Name"></p>
+                                                <p><input type="email" disabled value="{{ $helo->email }}"
+                                                        name="oderEmail" placeholder="Email"></p>
+                                                <p><input type="text" value="Hai duong" name="address"
+                                                        placeholder="Address"></p>
                                                 <p><input type="tel" name="phone" placeholder="Phone"></p>
                                                 {{-- @foreach ($products as $item) --}}
                                                 <input hidden type="text" name="total" value="{{ $total }}"
@@ -167,7 +163,7 @@
                                                     <textarea name="bill" id="bill" cols="30" rows="10" placeholder="Say Something"></textarea>
                                                 </p>
                                                 <button class="btn btn-warning">Save</button> <br>
-                                                <div> 
+                                                <div>
                                                     @if ($errors->any())
                                                         <ul>
                                                             @foreach ($errors->all() as $error)

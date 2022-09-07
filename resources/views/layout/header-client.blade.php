@@ -5,7 +5,7 @@
                 <div class="main-menu-wrap">
                     <!-- logo -->
                     <div class="site-logo">
-                        <a href="index.html">
+                        <a href="{{route('client.index')}}">
                             <img src="{{ asset('assets/img/logo.png') }}" alt="">
                         </a>
                     </div>
@@ -18,7 +18,7 @@
 
                             </li>
                             <li><a href="{{ route('client.about') }}">About</a></li>
-                            <li><a href="#">Pages</a>
+                            {{-- <li><a href="#">Pages</a> --}}
 
                             </li>
                             <li><a href="{{ route('client.new') }}">News</a>
@@ -30,8 +30,11 @@
                             </li>
                             <li>
                                 <div class="header-icons">
-                                    <a class="shopping-cart" href="{{ route('client.cart') }}"><i
-                                            class="fas fa-shopping-cart"></i></a>
+                                    @if (Auth::user())
+                                        <a class="shopping-cart" href="{{ route('client.cart') }}"><i
+                                                class="fas fa-shopping-cart"></i></a>
+                                    @endif
+
                                     <a class="mobile-hide search-bar-icon" href="#"><i
                                             class="fas fa-search"></i></a>
                                     <span>

@@ -15,7 +15,7 @@
         @yield('title')</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css')}}"  rel="stylesheet">
+    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <!--
 TemplateMo 546 Sixteen Clothing
 https://templatemo.com/tm-546-sixteen-clothing
@@ -48,24 +48,7 @@ https://templatemo.com/tm-546-sixteen-clothing
 </head>
 
 <body>
-    {{-- <form action="{{route('client.shop')}}">
-        <div class="search-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <span class="close-btn"><i class="fas fa-window-close"></i></span>
-                        <div class="search-bar">
-                            <div class="search-bar-tablecell">
-                                <h3>Search For:</h3>
-                                <input type="text" name="search" placeholder="Keywords">
-                                <button type="submit">Search <i class="fas fa-search"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-     </form> --}}
+
     <!-- ***** Preloader Start ***** -->
     <div id="preloader">
         <div class="jumper">
@@ -84,10 +67,11 @@ https://templatemo.com/tm-546-sixteen-clothing
             <div class="circle"></div>
         </div>
     </div>
+
     @yield('content')
     {{-- footer --}}
-       <!-- logo carousel -->
-       <div class="logo-carousel-section">
+    <!-- logo carousel -->
+    <div class="logo-carousel-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">

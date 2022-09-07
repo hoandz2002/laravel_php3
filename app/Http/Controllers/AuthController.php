@@ -54,6 +54,7 @@ class AuthController extends Controller
          else 
         {
             //nếu k khớp bản ghi nào trong db thì quay về login
+            session()->flash('error','Tài khoản mật khẩu không chính xác !');
             return redirect()->route('auth.getLogin');
             // dd('cc');
         }
@@ -75,8 +76,9 @@ class AuthController extends Controller
     {
         return view('auth.dangki');
     }
-    public function postForm(Request $request)
+    public function store(Request $request)
     {
+      
         $user = new User();
     
         $user->fill($request->all());
@@ -95,6 +97,5 @@ class AuthController extends Controller
         // 3. Lưu $user vào CSDL
         $user->save();
         session()->flash('success','bạn đã đăng kí thành công');
-        return redirect()->route('auth.getLogin');
-    }
+        return redirect()->route('auth.getLogin');    }
 }
